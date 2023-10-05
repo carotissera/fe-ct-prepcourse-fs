@@ -38,10 +38,14 @@ function menosQueNoventa(num) {
     }else {
       return false;
     }
-  
+    }
+
+    var menorque = menosQueNoventa(90);
+    console.log(menorque);
+
  
 
-}
+
 
 function mayorQueCincuenta(num) {
    // Retorna true si el argumento "num" es mayor que cincuenta.

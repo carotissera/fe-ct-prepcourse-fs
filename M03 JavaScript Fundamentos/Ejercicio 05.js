@@ -27,7 +27,7 @@ function agregarSimboloExclamacion(str) {
    // Agrega un símbolo de exclamación al final del string "str" y retórnalo
    // Ejemplo: "hello world" ---> "hello world!"
    // Tu código:
-   var str= str + "!";
+   var str = str + "!";
    console.log(str);
    return str;
 }
@@ -75,6 +75,7 @@ function areaDelTriangulo(base, altura) {
    return area;
 }
 
+
 function deEuroAdolar(euro) {
    // Supongamos que 1 euro equivale a 1.20 dólares.
    // Debes calcular el valor recibido como argumento pasándolo a dolares.
@@ -84,13 +85,18 @@ function deEuroAdolar(euro) {
    return conversion;
 }
 
+
+
+
 function esVocal(letra) {
    // Escribe una función que reciba una letra y, si es una vocal, muestre el mensaje “Es vocal”.
    // Si el usuario ingresa un string de más de un caracter debes retornar el mensaje: "Dato incorrecto".
    // Si no es vocal, tambien debe retornar "Dato incorrecto".
    // Tu código:
-  
-}
+  if ( letra ==="a" || letra ==="e" || letra ==="i" || letra ==="o" || letra ==="u")
+{
+   return "Es vocal";
+}else return "Dato incorrecto";}
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {
