@@ -150,10 +150,15 @@ function esPrimo(num) {
    // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
    // Tu código:
-   if (num % num ==0 && num %1 ==0){
+   var suma=0;
+   for (let index = num; index>0; index--) {
+      if(num % index == 0) suma=suma+1;
+   }
+   if (suma == 2){
       return true;
    }else return false;
 }
+
 
 function esVerdadero(valor) {
    // Si "valor" es verdadero retornar "Soy verdadero".

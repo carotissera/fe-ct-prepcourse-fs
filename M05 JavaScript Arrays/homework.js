@@ -9,9 +9,11 @@ function devolverPrimerElemento(array) {
 function devolverUltimoElemento(array) {
    // Retornar el último elemento del arreglo recibido por parámetro.
    // Tu código:
-   var largo= array.length;
-   return array[largo - 1];
+ /*   var largo= array.length;
+   return array[largo - 1]; */
+   return array.at(-1);
 }
+
 
 function obtenerLargoDelArray(array) {
    // Retornar la longitud del arreglo recibido por parámetro.
@@ -23,11 +25,18 @@ function incrementarPorUno(array) {
    // El arreglo recibido por parámetro contiene números.
    // Retornar un arreglo con los elementos incrementados en +1.
    // Tu código:
-   for ( var i=0 ; i< array.length ; i++){
+   var newarray =array.map(function(elemento){
+elemento=elemento+1;
+return elemento;
+   });
+   return newarray;
+   /* for ( var i=0 ; i< array.length ; i++){
       array[i]= array[i] + 1 ;
    }
-   return array;
+   return array; */
 }
+
+
 
 function agregarItemAlFinalDelArray(array, elemento) {
    // Agrega el "elemento" al final del arreglo recibido.
@@ -60,39 +69,61 @@ function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
-   var flag=0;
+  /*  var flag=0;
    for ( var i=0; i< array.length ; i++){
       if (array[i]=== elemento){
          flag=1;
       }
    }
    if (flag === 1) return true;
-   else return false;
+   else return false; */
+   var buscar=elemento;
+   var filtrado = array.filter (function (elem){
+      if(elem == buscar)return elem;
+   })
+   if (filtrado.length== 0)return false;
+   else return true;
+   
 }
+
 
 function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
-   var suma=0;
+   /* var suma=0;
    for (var i=0; i< arrayOfNums.length ; i++){
 suma = suma + arrayOfNums[i];
    }
-   return suma;
+   return suma; */
+   var suma= arrayOfNums.reduce(function (acum, elemento){
+acum=acum+elemento;
+return acum;
+   })
+ return suma;
 }
+
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
-   var suma=0;
+   /* var suma=0;
    var prom;
    for (var i=0; i< resultadosTest.length ; i++){
 suma = suma + resultadosTest[i];
    }
    prom=suma /resultadosTest.length;
-   return prom;
+   return prom; */
+   var suma= resultadosTest.reduce (function( acum ,elemet){
+acum=acum+elemet;
+return acum;
+   })
+   return suma/ resultadosTest.length; 
 }
+
+
+
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
@@ -119,26 +150,37 @@ function multiplicarArgumentos(arguments) {
 if (arguments === undefined) return 0;
 else if (arguments.length === 1) return arguments;
 else{
-   var mult=1;
+  /*  var mult=1;
    for (i=0; i< arguments.length ; i++){
       mult=mult*arguments[i];
    }
+return mult; */
+var mult= arguments.reduce(function (acum, elemeto){
+acum=acum*elemeto;
+return acum;
+}
+) 
 return mult;
-}
-}
+}}
+
 
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
-   var suma=0;
+   /* var suma=0;
    for (var i=0; i<array.length; i++){
       if (array[i]>18) {
          suma=suma+1;
       }
    }
-   return suma;
+   return suma; */
+   var filtrado = array.filter(function (elem){
+      if (elem >18)return elem;
+   });
+   return filtrado.length;
 }
+
 
 function diaDeLaSemana(numeroDeDia) {
    // Supongamos que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente.
@@ -183,18 +225,26 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-   var newarray=[], band=0, j=0;
+ /*   var newarray=[], band=0, j=0;
    for (i=0; i<array.length; i++){
       array[i]=array[i].toLowerCase();
-      if (array[i]=== "Enero" || array[i]=== "Marzo"||array[i]=== "ENoviembre" ){
+      if (array[i]=== "enero" || array[i]=== "marzo"||array[i]=== "noviembre" ){
 newarray[j]= array[i];
 j++;
 band =1;
       }
    }
    if (band==0)return "No se encontraron los meses pedidos";
-   else return newarray;
-}
+   else return newarray;*/
+   var filtrado = array.filter (function(elem){
+      elem =elem.toLowerCase();
+      if(elem=== "enero" || elem=== "marzo"||elem== "noviembre") return elem;
+   })
+   if (filtrado.length == 0)return "No se encontraron los meses pedidos";
+   else return filtrado
+   
+} 
+
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
@@ -211,7 +261,7 @@ function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
-   var newarray=[];
+   /* var newarray=[];
    var j=0;
    for (var i=0; i<array.length; i++){
       if (array[i]>100) {
@@ -219,8 +269,13 @@ function mayorACien(array) {
          j++;
       }
    }
-   return newarray;
+   return newarray; */
+   var filtrado = array.filter (function (elemento){
+      if(elemento >100)return elemento;
+   });
+   return filtrado;
 }
+
 
 /* ----------------------------------------------------------------------------------
 💪 EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT EXTRA CREDIT  EXTRA CREDIT 💪
@@ -263,7 +318,7 @@ function continueStatement(num) {
       array [i]=num+2;
    }
    return array;
-}
+} 
 
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
