@@ -77,12 +77,13 @@ function arrayContiene(array, elemento) {
    }
    if (flag === 1) return true;
    else return false; */
-   var buscar=elemento;
+/*    var buscar=elemento;
    var filtrado = array.filter (function (elem){
       if(elem == buscar)return elem;
    })
    if (filtrado.length== 0)return false;
-   else return true;
+   else return true; */
+   return array.includes(elemento);
    
 }
 

@@ -46,6 +46,7 @@ function invocarMetodo(objeto, metodo) {
    // Esta propiedad contiene una función en su interior. Debes invocarla/ejecutarla.
    // [NOTA]: no necesitar retornar nada.
    // Tu código:
+  objeto[metodo]();
   
 }
 
@@ -53,6 +54,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
    // El parámetro "objetoMisterioso" posee una propiedad con el nombre "numeroMisterioso".
    // Debes multiplicar este número por 5 y retornar el resultado.
    // Tu código:
+   return objetoMisterioso["numeroMisterioso"]*5;
 
 }
 
@@ -100,6 +102,7 @@ function agregarAmigo(objetoUsuario, nuevoAmigo) {
    // Debes agregar el "nuevoAmigo" al final de este arreglo.
    // Retornar el objeto.
    // Tu código:
+   return objetoUsuario.amigos.push(nuevoAmigo);
 }
 
 function pasarUsuarioAPremium(objetoMuchosUsuarios) {
@@ -108,6 +111,9 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
+   objetoMuchosUsuarios.forEach(element => {
+      element.esPremium = true;
+   });
 }
 
 function sumarLikesDeUsuario(objetoUsuario) {
@@ -116,6 +122,11 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Cada post posee una propiedad llamada "likes". Esta propiedad es un número.
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
+   var suma=0;
+ for (const key in objetoUsuario) {
+suma =suma+ objetoUsuario[key]["likes"];
+ }
+ return suma;
 }
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
@@ -129,6 +140,10 @@ function agregarMetodoCalculoDescuento(objetoProducto) {
    // PorcentajeDeDescuento ---> 0.2
    // Precio final ---> 8
    // Tu código:
+   objetoProducto.calcularPrecioDescuento= function (precio){
+      var descuento= objetoProducto[precio]*objetoProducto[porcentajeDeDescuento];
+return precio-descuento;
+   };
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
